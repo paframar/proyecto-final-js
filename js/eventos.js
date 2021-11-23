@@ -816,7 +816,6 @@ for (let x = 1 ; x <= 3 ; x++ ){
 // DOM ContentLoaded
 document.addEventListener('DOMContentLoaded', function(){
 
-
   recallBtnsStatus();
   recallLogContent();
   mostrarPuntos();

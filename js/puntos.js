@@ -107,7 +107,7 @@ function mostrarPuntos(){
       // recorre cantidad de cuadraditos completos y agrega imagenes con 5 fosforos
       for (let x = 1 ; x <= cuadraditosCompletosPC ; x++){
         
-        let tdPuntosPC = document.getElementById(`td-puntos-${x}-jugador`);
+        let tdPuntosPC = document.getElementById(`td-puntos-${x}-pc`);
         
         let IMGfosforo = document.createElement('img');
         IMGfosforo.style.height = '40px';
