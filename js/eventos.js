@@ -1,3 +1,9 @@
+// Click - btn-retirarse
+$('#btn-retirarse').click(function(){
+  localStorage.setItem('ganadorRonda', 'PC');
+  finDeRonda();
+});
+
 // Click - btn-truco
 $('#btn-truco').click(function() {
   
@@ -537,7 +543,7 @@ $('#btn-falta-envido').click(function(){
   let nombrePC = localStorage.getItem('nombrePC');
   
   // obtiene la respuesta de la PC 
-  let respuestaPC = PCresponderCanto('real envido');
+  let respuestaPC = PCresponderCanto('falta envido');
 
   // aqui se obtendra llegado el caso el ganador del tanto
   let ganadorTanto = '';

@@ -15,6 +15,7 @@ function checkManoActual(){
               // de primera a segunda,
               case 1:
                 nuevaManoActual = `segunda`;
+                setBotonesNoMasEnvido();
                 break;
                 // o de segunda a tercera
               case 2:
@@ -486,7 +487,7 @@ function finDeRonda(){
   setBotonesNuevaRonda();
 
   // disable mano jugador
-  disableManoJugador('fin de  ronda')
+  disableManoJugador('fin de ronda')
 
   // verifica si alguien ganó la partida
   checkGanadorPartida();

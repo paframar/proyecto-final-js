@@ -5,6 +5,8 @@ let arrayKeys = ['statusBtnNuevoJuego', 'statusBtnRepartirCartas', 'statusBtnJug
 let arrayButtons = ['btn-nuevo-juego', 'btn-repartir-cartas', 'btn-jugar-pc', 'btn-retirarse',
 'btn-envido', 'btn-real-envido', 'btn-falta-envido', 'btn-truco', 'btn-retruco', 'btn-vale-4'];
 
+
+
 // deshabilita un boton
 function disableButton(buttonIDParam){
 
@@ -63,6 +65,13 @@ function recallBtnsStatus(){
     }
 
   }
+}
+
+
+function setBotonesNoMasEnvido(){
+  disableButton('btn-envido');
+  disableButton('btn-real-envido');
+  disableButton('btn-falta-envido');
 }
 
 // setea los botones al clickear Repartir cartas

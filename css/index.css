@@ -118,7 +118,7 @@ body {
     opacity: 0.7; }
 
 .ul-log {
-  font-size: 16px;
+  font-size: 18px;
   overflow-y: scroll;
   box-sizing: border-box;
   padding: 20px;
@@ -136,7 +136,10 @@ body {
   .ul-log::-webkit-scrollbar {
     display: none; }
   .ul-log li {
-    list-style: none; }
+    list-style: none;
+    text-align: justify;
+    border-radius: 20px;
+    padding: 5px; }
 
 .div-block {
   position: fixed;
