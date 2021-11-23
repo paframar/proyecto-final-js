@@ -1,0 +1,212 @@
+
+
+.section{
+
+  // secciones de manos de cartas
+  &-cartas{
+
+    background-color: $cyan-1;
+    height: 20vh;
+
+
+    &-pc{
+
+      .div-mano-pc{
+
+        width: 33%;
+
+        #h2-nombre-pc{
+          font-weight: lighter;
+          color: $dark-grey;
+          text-align: center;
+          border-radius: 20px;
+        }
+
+      }
+
+    }
+
+  }
+
+  // seccion donde se juegan las cartas
+  &-mesa{
+
+    background-color: $dark-grey;
+    height: 20vh;
+
+  }
+
+  // user interface, seccion de abajo
+  &-ui{
+    
+    background-color: $cyan-2;
+    height: 20vh;
+
+    .table-puntos{
+      
+      font-size: 20px;
+      border-width: 3px;
+      border-color: black;
+      border-radius: 5px;
+      
+      &-th{
+        background-color: rgba(255, 255, 255, 0.5);
+        border-style: double;
+        width: 40px;
+      }
+      
+      &-td{
+        border-width: 1px;
+        height: 40px;
+        width: 40px;
+        border-style: dashed;
+      }
+    }
+    
+    // botones
+    .button{
+      
+      font-size: 20px;
+
+      // truco y envido
+      &-canto{
+        height: 30px;
+        width: 140px;
+        margin-top: 10px;
+        border-radius: 25px;
+        border-width: 2px;
+        border-color: $dark-grey;
+        color: #FFF;
+        background-color:$dark-grey;
+      }
+
+      // repartir cartas, nuevo juego, etc
+      &-acciones{
+        height: 30px;
+        width: 140px;
+        margin-top: 10px;
+        border-radius: 25px;
+        border-width: 2px;
+        border-color: $dark-grey;
+        color: $dark-grey;
+        background-color:$cyan-2; 
+      }
+      
+      &-puntos{
+        height: 30px;
+        width: 80px;
+        margin-top: 10px;
+        border-radius: 25px;
+        border-width: 2px;
+        border-color: $dark-grey;
+        color: $dark-grey;
+        background-color:$cyan-2; 
+        padding-inline: 10px;
+        display:inline-block;                                                         
+        
+      }
+      
+      &:hover{
+        cursor: pointer;
+        background-color: $cyan-1;
+        color: $dark-grey;
+      }
+     
+    }
+
+    // estilos de botones desabilitados 
+    .btn-disabled{
+      cursor:unset;
+      background-color: $dark-grey;
+      color: $light-grey;
+      opacity: 0.4;
+    }
+    
+    
+
+  }
+
+  &-img-card{
+    height: 60%;
+    margin-inline: 20px;
+    border-radius: 5px;
+  
+    &-mano-jugador
+    {
+      &:hover{
+        cursor:pointer;
+        height: 70%;
+        border-right-style: solid;
+        border-bottom-style: solid;
+        opacity: 0.7;
+    
+      }
+
+    }
+  }
+
+  
+
+
+}
+
+
+.ul-log{
+
+  font-size: 16px;
+  overflow-y:scroll;
+  
+  box-sizing: border-box;
+  padding: 20px;
+  margin-bottom: 15px;
+  line-height: 28px;
+
+  position:fixed;
+
+  border-radius: 8px;
+  border-width: 1.5px;
+  background-color: rgb(203, 248, 253);
+
+  height: 36vh;
+  width: 25vw;
+  top: 22vh;
+  right:1vh;
+
+  line-height: 28px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  li{
+    list-style: none;
+  }
+
+}
+
+.div-block{
+
+  position:fixed;
+  height: 17vh;
+  width: 90vw;
+  top: 61vh;
+  left: 5vw;
+
+  background-color:$dark-grey;
+  opacity: 0.9;
+  border-radius: 20px;
+
+  p{
+    font-size: 22px;
+    border-radius: 20px;
+    padding:10px;
+    
+    background-color: $light-grey;
+    color: $dark-grey;
+  }
+
+  &-off{
+    display: none;
+  }
+
+}

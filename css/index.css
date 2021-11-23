@@ -1,0 +1,157 @@
+* {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  margin: 0;
+  padding: 0; }
+
+body {
+  height: 100vh; }
+
+.flex {
+  display: flex; }
+  .flex-fd-row {
+    flex-direction: row; }
+  .flex-fd-row-rev {
+    flex-direction: row row-reverse; }
+  .flex-fd-col {
+    flex-direction: column; }
+  .flex-fd-col-rev {
+    flex-direction: column-reverse; }
+  .flex-jc-c {
+    justify-content: center; }
+  .flex-jc-sa {
+    justify-content: space-around; }
+  .flex-jc-sb {
+    justify-content: space-between; }
+  .flex-jc-se {
+    justify-content: space-evenly; }
+  .flex-ai-c {
+    align-items: center; }
+  .flex-ai-sa {
+    align-items: space-around; }
+  .flex-ai-sb {
+    align-items: space-between; }
+  .flex-ai-se {
+    align-items: space-evenly; }
+
+.section-cartas {
+  background-color: #adf6f2;
+  height: 20vh; }
+  .section-cartas-pc .div-mano-pc {
+    width: 33%; }
+    .section-cartas-pc .div-mano-pc #h2-nombre-pc {
+      font-weight: lighter;
+      color: #3d3f42;
+      text-align: center;
+      border-radius: 20px; }
+
+.section-mesa {
+  background-color: #3d3f42;
+  height: 20vh; }
+
+.section-ui {
+  background-color: #7bf1eb;
+  height: 20vh; }
+  .section-ui .table-puntos {
+    font-size: 20px;
+    border-width: 3px;
+    border-color: black;
+    border-radius: 5px; }
+    .section-ui .table-puntos-th {
+      background-color: rgba(255, 255, 255, 0.5);
+      border-style: double;
+      width: 40px; }
+    .section-ui .table-puntos-td {
+      border-width: 1px;
+      height: 40px;
+      width: 40px;
+      border-style: dashed; }
+  .section-ui .button {
+    font-size: 20px; }
+    .section-ui .button-canto {
+      height: 30px;
+      width: 140px;
+      margin-top: 10px;
+      border-radius: 25px;
+      border-width: 2px;
+      border-color: #3d3f42;
+      color: #FFF;
+      background-color: #3d3f42; }
+    .section-ui .button-acciones {
+      height: 30px;
+      width: 140px;
+      margin-top: 10px;
+      border-radius: 25px;
+      border-width: 2px;
+      border-color: #3d3f42;
+      color: #3d3f42;
+      background-color: #7bf1eb; }
+    .section-ui .button-puntos {
+      height: 30px;
+      width: 80px;
+      margin-top: 10px;
+      border-radius: 25px;
+      border-width: 2px;
+      border-color: #3d3f42;
+      color: #3d3f42;
+      background-color: #7bf1eb;
+      padding-inline: 10px;
+      display: inline-block; }
+    .section-ui .button:hover {
+      cursor: pointer;
+      background-color: #adf6f2;
+      color: #3d3f42; }
+  .section-ui .btn-disabled {
+    cursor: unset;
+    background-color: #3d3f42;
+    color: #7e7f80;
+    opacity: 0.4; }
+
+.section-img-card {
+  height: 60%;
+  margin-inline: 20px;
+  border-radius: 5px; }
+  .section-img-card-mano-jugador:hover {
+    cursor: pointer;
+    height: 70%;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    opacity: 0.7; }
+
+.ul-log {
+  font-size: 16px;
+  overflow-y: scroll;
+  box-sizing: border-box;
+  padding: 20px;
+  margin-bottom: 15px;
+  line-height: 28px;
+  position: fixed;
+  border-radius: 8px;
+  border-width: 1.5px;
+  background-color: #cbf8fd;
+  height: 36vh;
+  width: 25vw;
+  top: 22vh;
+  right: 1vh;
+  line-height: 28px; }
+  .ul-log::-webkit-scrollbar {
+    display: none; }
+  .ul-log li {
+    list-style: none; }
+
+.div-block {
+  position: fixed;
+  height: 17vh;
+  width: 90vw;
+  top: 61vh;
+  left: 5vw;
+  background-color: #3d3f42;
+  opacity: 0.9;
+  border-radius: 20px; }
+  .div-block p {
+    font-size: 22px;
+    border-radius: 20px;
+    padding: 10px;
+    background-color: #7e7f80;
+    color: #3d3f42; }
+  .div-block-off {
+    display: none; }

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/index.css">
+  <title>TRUCO</title>
+</head>
+
+<body class = "flex flex-fd-col">
+
+  <!--  MANO DE LA PC -->
+  <section class="section section-cartas section-cartas-pc
+  flex flex-fd-row flex-jc-c flex-ai-c">
+
+    <div class = "div-mano-pc">
+
+    </div>
+
+      <img id="carta-pc-1" class="section-img-card" src="/cards/transparent.png" alt="">
+      <img id="carta-pc-2" class="section-img-card" src="/cards/transparent.png" alt="">
+      <img id="carta-pc-3" class="section-img-card" src="/cards/transparent.png" alt="">
+
+
+    <div class = "div-mano-pc">
+
+      <h2 id="h2-nombre-pc"></h2>
+
+    </div>
+
+  </section>
+  
+  <!-- MESA DE LA PC -->
+  <section class="section section-mesa section-mesa-pc
+  flex flex-fd-row flex-jc-c flex-ai-c">
+
+      <img id = "carta-mesa-pc-1" class="section-img-card" alt="">  
+      <img id = "carta-mesa-pc-2" class="section-img-card" alt="">  
+      <img id = "carta-mesa-pc-3" class="section-img-card" alt="">    
+
+  </section>
+
+  <!-- MESA DEL JUGADOR -->
+  <section class="section section-mesa section-mesa-jugador
+  flex flex-fd-row flex-jc-c flex-ai-c">
+
+    <img id = "carta-mesa-jugador-1" class="section-img-card" alt="">  
+    <img id = "carta-mesa-jugador-2" class="section-img-card" alt="">  
+    <img id = "carta-mesa-jugador-3" class="section-img-card" alt="">    
+
+  </section>
+
+  
+
+  <!-- MANO DEL JUGADOR -->
+  <section id="section-mano-jugador" class="section section-cartas section-cartas-jugador
+  flex flex-fd-row flex-jc-c flex-ai-c">
+      
+      <img id="carta-jugador-1" class="section-img-card section-img-card-mano-jugador" src="" alt="">  
+      <img id="carta-jugador-2" class="section-img-card section-img-card-mano-jugador" src="" alt="">  
+      <img id="carta-jugador-3" class="section-img-card section-img-card-mano-jugador" src="" alt="">  
+       
+  </section>
+ 
+  <div id="div-block" class="div-block-off flex flex-fd-col flex-ai-c flex-jc-se">
+    <p>Es el turno de la PC.</p>
+    <p>Presiona un CANTO o JUGAR PC para continuar.</p>
+  </div>
+ 
+  <!-- div LOG -->
+  <ul id = 'ul-log' class="ul-log flex flex-fd-col"></ul>
+  
+  <!-- USER INTERFACE -->
+  <section class="section section-ui
+  flex flex-fd-row flex-jc-sa flex-ai-c">
+
+    <!-- btns ENVIDO -->
+    <div class="div-btns div-btns-canto1
+    flex flex-fd-col flex-jc-sb flex-ai-c">
+
+      <button id = "btn-envido" class="button button-canto
+      btn-disabled" disabled>Envido</button>
+
+      <button id = "btn-real-envido" class="button button-canto 
+      btn-disabled" disabled>Realenvido</button>
+
+      <button id = "btn-falta-envido" class="button button-canto 
+      btn-disabled" disabled>Falta Envido</button>
+
+    </div>
+
+    <!-- btns TRUCO -->
+    <div class="div-btns div-btns-canto2
+    flex flex-fd-col flex-jc-sb flex-ai-c">
+
+      <button id = "btn-truco" class="button button-canto
+      btn-disabled" disabled>Truco</button>
+
+      <button id = "btn-retruco" class="button button-canto 
+      btn-disabled" disabled>Retruco</button>
+
+      <button id = "btn-vale-4" class="button button-canto 
+      btn-disabled" disabled>Vale 4</button>
+    
+    </div>
+
+
+    
+    
+    <!-- print PUNTOS -->
+    <div class="div-puntos
+    flex flex-fd-col flex-jc-c flex-ai-c">
+
+      <table class = "table-puntos">
+
+        <tr id = "tr-puntos-jugador">
+          <th class = "table-puntos table-puntos-th">Jugador</td>
+            <td id = "td-puntos-1-jugador" class="table-puntos table-puntos-td"></td>
+            <td id = "td-puntos-2-jugador" class="table-puntos table-puntos-td"></td>
+            <td id = "td-puntos-3-jugador" class="table-puntos table-puntos-td"></td>
+            <td id = "td-puntos-4-jugador" class="table-puntos table-puntos-td"></td>
+            <td id = "td-puntos-5-jugador" class="table-puntos table-puntos-td"></td>
+            <td id = "td-puntos-6-jugador" class="table-puntos table-puntos-td"></td>
+        </tr>
+
+        <tr id = "tr-puntos-pc">
+          <th class = "table-puntos table-puntos-th">PC</td>
+          <td id = "td-puntos-1-pc" class="table-puntos table-puntos-td"></td>
+          <td id = "td-puntos-2-pc" class="table-puntos table-puntos-td"></td>
+          <td id = "td-puntos-3-pc" class="table-puntos table-puntos-td"></td>
+          <td id = "td-puntos-4-pc" class="table-puntos table-puntos-td"></td>
+          <td id = "td-puntos-5-pc" class="table-puntos table-puntos-td"></td>
+          <td id = "td-puntos-6-pc" class="table-puntos table-puntos-td"></td>
+        </tr>
+
+      </table>
+
+    </div>
+
+    <!-- btns Acciones -->
+    <div class="div-btns div-btns-acciones
+      flex flex-fd-col flex-jc-sb flex-ai-c">
+      
+      <div>
+
+        <button id="btn-jugar-pc" class="button button-acciones"
+        >Jugar PC</button>
+        
+        <button id="btn-repartir-cartas" class="button button-acciones
+        btn-disabled" disabled>Repartir cartas</button>
+      
+      </div>
+
+      <div>
+
+        <button id="btn-retirarse" class="button button-acciones 
+        btn-disabled" disabled>Retirarse</button>
+        
+        <button id="btn-nuevo-juego" class="button button-acciones"
+        >Nuevo Juego</button>
+        
+      </div>
+
+      <div>
+
+        <button id="btn-reset" class="button button-acciones" 
+        >Reset</button>      
+
+      </div>
+
+
+
+    </div>
+    
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="/js/storage.js"></script>
+  <script src="/js/random-user.js"></script>
+  <script src="/js/botones.js"></script>
+  <script src="/js/cartas.js"></script>
+  <script src="/js/juego-pc.js"></script>
+  <script src="/js/juego-jugador.js"></script>
+  <script src="/js/puntos.js"></script>
+  <script src="/js/dinamica-ronda.js"></script>
+  <script src="/js/eventos.js"></script>
+
+</body>
+</html>
+
