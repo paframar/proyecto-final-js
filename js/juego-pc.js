@@ -381,9 +381,11 @@ function PCCantarLoSegundo(){
       
   if (cantoPC != null){
         
-        // si acepta el canto
-        if (confirm(`${nombrePC} dice: "${cantoPC}". ¿Querés?`)){
+        writeLog(`${nombrePC} te canta ${cantoPC}.`);
 
+        // si acepta el canto
+        if (confirm(`${nombrePC} te canta ${cantoPC}. ¿Querés?`)){
+          
           localStorage.setItem('segundoCanto', cantoPC);
           
           switch(cantoPC){
@@ -403,6 +405,8 @@ function PCCantarLoSegundo(){
 
         // si no acepta
         }else{
+          writeLog(`Rechazaste el ${cantoPC}. ${nombrePC} gana la ronda.`);
+
           localStorage.setItem('ganadorRonda', 'PC');
           finDeRonda();
         }
@@ -410,7 +414,6 @@ function PCCantarLoSegundo(){
   }
 
   if (cantoPC != null){
-    writeLog(`${nombrePC} te canta ${cantoPC}.`);
   }
 
 
@@ -427,9 +430,15 @@ function PCresponderCanto(cantoParam){
 
   let manoPC = JSON.parse(localStorage.getItem('cartasManoPC'));
   let nombrePC = localStorage.getItem('nombrePC');
-
+  
   let cartaMayorManoPC = manoPC[PCIndiceCartaMayorMano()].valor;
+  
+
   let tantoPC = localStorage.getItem('tantoPC');
+
+  let deQuienEsPrimera = localStorage.getItem('deQuienEsPrimera');
+  let deQuienEsSegunda = localStorage.getItem('deQuienEsSegunda');
+  let deQuienEsTercara = localStorage.getItem('deQuienEsTercera');
   
   switch(cantoParam){
 
@@ -532,73 +541,136 @@ function PCresponderCanto(cantoParam){
 
     case 'truco': 
 
-      if (random > 1){
+      if (manoPC.length>0){
 
-        // si tiene mas de un 2, 60%
-        if (random > 4 && cartaMayorManoPC.valor > 9){
+          if (random > 1){
+            
+            // si tiene mas de un 2, 60%
+            if (random > 4 && cartaMayorManoPC.valor > 9){
+              
+              respuesta = 'retruco';
+              localStorage.setItem('deQuienEsElQuieroSegundo', 'jugador');
+              
+            // si tiene mas de un 12, %40
+            }else if(cartaMayorManoPC.valor > 7 && random > 6){
+              
+              respuesta = 'quiero';
+              localStorage.setItem('deQuienEsElQuieroSegundo', 'PC');
 
-          respuesta = 'retruco';
-          localStorage.setItem('deQuienEsElQuieroSegundo', 'jugador');
-        
-        // si tiene mas de un 12, %40
-        }else if(cartaMayorManoPC.valor > 7 && random > 6){
+            // si primera no es de nadie, 60%
+            }else if(deQuienEsPrimera == 'nadie' && random > 2){
 
+              respuesta = 'quiero';
+              localStorage.setItem('deQuienEsElQuieroSegundo', 'PC');
+              
+            // miente, %10
+            }else if(random >9){
+              
+              respuesta = 'quiero';
+              localStorage.setItem('deQuienEsElQuieroSegundo', 'PC');
+              
+            }else{
+              
+              respuesta = 'no quiero';
+              
+            }
+            
+          }
+          
+      }else{
+
+        if(deQuienEsPrimera == 'PC'){
           respuesta = 'quiero';
           localStorage.setItem('deQuienEsElQuieroSegundo', 'PC');
-        
-        // miente, %10
-        }else if(random >9){
 
+        }else if(random > 4){
           respuesta = 'quiero';
           localStorage.setItem('deQuienEsElQuieroSegundo', 'PC');
 
         }else{
-
           respuesta = 'no quiero';
+        }
+
+      } 
+      
+      break;
+      
+      case 'retruco':
         
+        if (manoPC.length>0){
+          
+          // si tiene un 3 o mas, 90% 
+          if(cartaMayorManoPC.valor > 11 && random > 1){
+            respuesta = 'quiero';
+          localStorage.setItem('deQuienEsElQuieroSegundo', 'PC');
+          
+          // si tiene mas de un 2, 80%
+        }else if(cartaMayorManoPC.valor > 9 && random > 2){
+          respuesta = 'quiero';
+          localStorage.setItem('deQuienEsElQuieroSegundo', 'PC');
+          
+          // si tiene un 12 o mas, %40
+        }else if(cartaMayorManoPC.valor > 7 && random > 6){
+          respuesta = 'quiero';
+          localStorage.setItem('deQuienEsElQuieroSegundo', 'PC');
+          
+        }else{
+          respuesta = 'no quiero'; 
+          
+        }
+        
+      }else{
+
+        if(deQuienEsPrimera == 'PC'){
+          respuesta = 'quiero';
+          localStorage.setItem('deQuienEsElQuieroSegundo', 'PC');
+
+        }else if(random > 5){
+          respuesta = 'quiero';
+          localStorage.setItem('deQuienEsElQuieroSegundo', 'PC');
+
+        }else{
+          respuesta = 'no quiero';
         }
 
       }
-
-      break;
-    
-    case 'retruco':
-
-      // si tiene un 3 o mas, 90% 
-      if(cartaMayorManoPC.valor > 11 && random > 1){
-        respuesta = 'quiero';
-        localStorage.setItem('deQuienEsElQuieroSegundo', 'PC');
-
-      // si tiene mas de un 2, 80%
-      }else if(cartaMayorManoPC.valor > 9 && random > 2){
-        respuesta = 'quiero';
-        localStorage.setItem('deQuienEsElQuieroSegundo', 'PC');
-
-      // si tiene un 12 o mas, %40
-      }else if(cartaMayorManoPC.valor > 7 && random > 6){
-        respuesta = 'quiero';
-        localStorage.setItem('deQuienEsElQuieroSegundo', 'PC');
-
-      }else{
-        respuesta = 'no quiero'; 
-
-      }
-
+      
       break;
     
     case 'vale 4':
 
-      if (random > 2){
+      if (manoPC.length > 0){
 
-        respuesta = 'quiero';
-        localStorage.setItem('deQuienEsElQuieroSegundo', 'PC');
+        if (cartaMayorManoPC.valor >= 11){
+          respuesta = 'quiero';
+          localStorage.setItem('deQuienEsElQuieroSegundo', 'PC');
 
-        break;
-      
+        }else if(deQuienEsPrimera == 'PC' && cartaMayorManoPC.valor > 10){
+          respuesta = 'quiero';
+          localStorage.setItem('deQuienEsElQuieroSegundo', 'PC');
+
+        }else if(random > 5 && cartaMayorManoPC.valor > 8){
+          respuesta = 'quiero';
+          localStorage.setItem('deQuienEsElQuieroSegundo', 'PC');
+          
+        }else{
+          respuesta = 'no quiero';
+        }
+        
       }else{
-      
-        respuesta = 'no quiero';
 
+        if(deQuienEsPrimera == 'PC'){
+          respuesta = 'quiero';
+          localStorage.setItem('deQuienEsElQuieroSegundo', 'PC');
+
+        }else if(random > 5){
+          respuesta = 'quiero';
+          localStorage.setItem('deQuienEsElQuieroSegundo', 'PC');
+          
+        }else{
+          respuesta = 'no quiero';
+        }
+    
       }
 
       break;

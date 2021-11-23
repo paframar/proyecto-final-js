@@ -109,17 +109,12 @@ function mostrarPuntos(){
         
         let tdPuntosPC = document.getElementById(`td-puntos-${x}-jugador`);
         
-        console.log('x = ', x);
-        console.log('tdPuntos:', tdPuntosPC);
-        
         let IMGfosforo = document.createElement('img');
         IMGfosforo.style.height = '40px';
         IMGfosforo.style.width = '40px';
         IMGfosforo.src = `/matches/matches-5.png`;
         
         tdPuntosPC.appendChild(IMGfosforo);
-        
-        console.log('imgfosforo:', IMGfosforo);
 
       }
       

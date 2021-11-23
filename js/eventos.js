@@ -248,10 +248,9 @@ $('#btn-envido').click(function(){
       valorPuntosTanto('real envido');
 
       // consulta al jugador si acepta
-      respuestaJugador = confirm(`${nombrePC} canta real envido a tu envido. ¿Aceptás?`);
       
       // si acepta
-      if (respuestaJugador){
+      if (confirm(`${nombrePC} canta real envido a tu envido. ¿Aceptás?`)){
 
         writeLog(`Aceptaste el envido + real envido.`);
 
@@ -293,10 +292,9 @@ $('#btn-envido').click(function(){
       valorPuntosTanto('falta envido');
 
       // consulta al jugador si acepta
-      let respuestaJugador = confirm(`${nombrePC} canta falta envido a tu envido. ¿Aceptás?`);
       
       // si acepta
-      if (respuestaJugador){
+      if (confirm(`${nombrePC} canta falta envido a tu envido. ¿Aceptás?`)){
 
         writeLog(`Aceptaste el envido + falta envido.`);
 
@@ -338,7 +336,7 @@ $('#btn-envido').click(function(){
       valorPuntosTanto('no quiero');
 
       puntosTantoRondaJugador = JSON.parse(localStorage.getItem('puntosTantoRondaJugador'));
-g
+
       writeLog(`Ganás el tanto no querido y obtenes ${puntosTantoRondaJugador} puntos de tanto a favor.`);
               
       break;
@@ -635,6 +633,8 @@ $('#btn-nuevo-juego').click(function(){
       writeLog('Esta ronda sos mano, comenzás jugando.');
     }
     
+    disableManoJugador('repartir cartas');  
+
     writeLog('Presiona REPARTIR CARTAS para comenzar.');
 
     // enable/disable de botones
@@ -682,7 +682,7 @@ $('#btn-repartir-cartas').click(function(){
       
       enableButton('btn-jugar-pc');      
       
-      disableManoJugador();
+      disableManoJugador('juega pc');
 
     break;
 
@@ -738,7 +738,7 @@ $('#btn-jugar-pc').click(function(){
     
     enableButton('btn-jugar-pc');      
     
-    disableManoJugador();
+    disableManoJugador('juega pc');
 
     break;
 
@@ -796,7 +796,7 @@ for (let x = 1 ; x <= 3 ; x++ ){
       
       enableButton('btn-jugar-pc');      
       
-      disableManoJugador();
+      disableManoJugador('juega pc');
 
       break;
 
@@ -824,7 +824,7 @@ document.addEventListener('DOMContentLoaded', function(){
   if (quienJuega == 'jugador'){
     enableManoJugador();
   }else{
-    disableManoJugador();
+    disableManoJugador('juega pc');
   }
 });
 

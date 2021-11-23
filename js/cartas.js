@@ -139,8 +139,6 @@ function mostrarMesa(deQuienParam){
   if (deQuienParam == 'jugador'){
     
     let lengthMesa = JSON.parse(localStorage.getItem('cartasMesaJugador')).length;
-    
-    console.log(lengthMesa);
 
     if (lengthMesa > 0){
 
@@ -447,11 +445,13 @@ function enableManoJugador(){
   }
   
   let divBlock = document.getElementById('div-block');
+  
   divBlock.classList.add('div-block-off');
   divBlock.classList.remove('div-block');
+
 }
 
-function disableManoJugador(){
+function disableManoJugador(tipoBlockParam){
 
   let lengthMano = JSON.parse(localStorage.getItem('cartasManoJugador')).length;
   
@@ -466,6 +466,24 @@ function disableManoJugador(){
   }
 
   let divBlock = document.getElementById('div-block');
+
+  switch (tipoBlockParam){
+    case 'juega pc':
+      divBlock.innerHTML = '';
+      divBlock.innerHTML = '<p>TURNO DE LA PC</p><p>Presiona un CANTO o JUGAR PC para continuar.</p>';
+      break;
+    case 'repartir cartas':
+      divBlock.innerHTML = '';
+      divBlock.innerHTML = '<p><b>NUEVO JUEGO</b></p><p>Presiona REPARTIR CARTAS para comenzar.</p>';
+      break;
+    case 'fin de ronda':
+      divBlock.innerHTML = '';
+      divBlock.innerHTML = '<p><b>FIN DE RONDA</b></p><p>Presiona REPARTIR CARTAS para comenzar.</p>';
+      break;
+  }
+
+
+
   divBlock.classList.remove('div-block-off');
   divBlock.classList.add('div-block');
 

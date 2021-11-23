@@ -412,8 +412,6 @@ function checkGanadorRonda(){
 
 function checkGanadorPartida(){
   
-  console.log('- entre a checkGanadorPartida - ');
-  
   let puntosJugador = JSON.parse(localStorage.getItem('puntosJugador'));
   let puntosPC = JSON.parse(localStorage.getItem('puntosPC'));
   let nombrePC = localStorage.getItem('nombrePC');
@@ -483,10 +481,12 @@ function finDeRonda(){
   // inicializa el storage para la siguiente ronda
   storageInitNuevaRonda();
 
-  
 
   // enable/disable de botones
   setBotonesNuevaRonda();
+
+  // disable mano jugador
+  disableManoJugador('fin de  ronda')
 
   // verifica si alguien ganó la partida
   checkGanadorPartida();
