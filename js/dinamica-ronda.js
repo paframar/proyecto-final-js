@@ -517,7 +517,8 @@ function clearLogContent(){
 // recallea el log al cargar
 function recallLogContent(){
   let logContent = localStorage.getItem('logContent');
-  if (logContent != null){writeLog(logContent);}
+  let ulLog = document.getElementById('ul-log');
+  ulLog.innerHTML = logContent;
 }
 
 // scrolea hasta abajo el log

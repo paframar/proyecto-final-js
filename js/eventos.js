@@ -27,7 +27,7 @@ $('#btn-truco').click(function() {
 
       localStorage.setItem('segundoCanto', 'truco');
       
-      if (confirm(`¡${nombrePC} te canta retruco!. ¿Aceptar?.`)){
+      if (confirm(`¡${nombrePC} te canta RETRUCO!. ¿Aceptar?.`)){
         setBotonesRetruco();
         localStorage.setItem('segundoCanto', 'retruco');
         writeLog(`Aceptaste el retruco.`);
@@ -832,6 +832,7 @@ document.addEventListener('DOMContentLoaded', function(){
   }else{
     disableManoJugador('juega pc');
   }
+
 });
 
 
